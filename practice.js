@@ -129,10 +129,10 @@ var album = {
 //Now, loop through your album object alerting every song title individually.
 
   //Code Here
-var songArray = album.getOwnPropertyNames();
+/* var songArray = album.getOwnPropertyNames();
 for (var i = 0; i < songArray.length; i++) {
   alert(songArray);
-};
+}; */
 
 
 
@@ -189,7 +189,9 @@ for (var prop in user1) {
 //Once you get your truthy Object, Change the remaining values in the object to be specific to you (name: 'your name', username: 'your username'), rather than my information.
 
   //Code Here
-
+user1.name = "Steven Gray";
+user1.pwHash = "gaHJ#W028slkj4%";
+user1.username = "aquasaurious";
 
 
 
@@ -213,12 +215,13 @@ var user2 = {
 // name -> 'Tyler S. McGinnis', email -> 'tyler.mcginnis@devmounta.in'. Make that change.
 
   //Code Here
-
+user2.name = "Tyler S. McGinnis";
+user2.email = "tyler.mcginnis@devmounta.in";
 
 //Now call the sayEmail method that's on the user object which will alert the users email
 
   //Code Here
-
+user2.sayEmail();
 
 
 
@@ -230,16 +233,26 @@ var user2 = {
 //Create an empty object called methodCollection.
 
   //Code Here
+var methodCollection = {};
 
 /*Now add two methods (functions that are properties on objects) to your methodCollection
 object. One called 'alertHello' which alerts 'hello' and another method called logHello
  which logs 'hello' to the console. */
 
   //Code Here
+methodCollection.alertHello = function () {
+  alert("hello");
+}
+
+methodCollection.logHello = function () {
+  console.log("hello");
+}
 
 //Now call your alertHello and logHello methods.
 
   //Code Here
+methodCollection.alertHello();
+methodCollection.logHello();
 
 
 
@@ -251,7 +264,14 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 // parameters and returns a new object with all of the information that you passed in.
 
   //Code Here
-
+function makePerson(name, birthday, ssn) {
+  var newPerson = {
+    name: name,
+    birthday: birthday,
+    ssn: ssn
+  };
+  return newPerson;
+}
 
 
 //NEXT PROBLEM
@@ -261,7 +281,14 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 // Create a function called makeCard which takes in cardNumber, expirationDate, and securityCode to make a Credit Card object and returns that object so that whenever you invoke makeCard, you get a brand new credit card.
 
   //Code Here
-
+function makeCard(cardnumber, expirationDate, securityCode) {
+  var newCC = {
+    CardNum: cardnumber,
+    Exp: expirationDate,
+    Code: securityCode
+  };
+  return newCC;
+}
 
 
 //NEXT PROBLEM
@@ -274,3 +301,15 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 */
 
   //Code Here
+function bindCard (person, card) {
+  var personCard = {};
+
+  
+  for (var key in person) {
+    personCard[key] = person[key];
+  }
+  for (var key in card) {
+    personCard[key] = person[key];
+  }
+  return personCard;
+}
